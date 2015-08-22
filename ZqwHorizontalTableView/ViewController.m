@@ -28,7 +28,7 @@
         _tableView.dataSource = self;
         _tableView.actionDelegate = self;
         _tableView.delegate = self;
-        _tableView.pagingEnabled = YES;
+//        _tableView.pagingEnabled = YES;
     }
     return _tableView;
 }
