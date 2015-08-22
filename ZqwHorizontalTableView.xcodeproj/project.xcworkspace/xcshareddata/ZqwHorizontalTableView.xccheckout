@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>C32ACB3B-9A26-4AC4-9FC3-376D03C3543E</string>
+	<key>IDESourceControlProjectName</key>
+	<string>ZqwHorizontalTableView</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>357969C32E2A3DBB11BC6205741BE78580013CEE</key>
+		<string>https://github.com/redihd/ZqwHorizontalTableView.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ZqwHorizontalTableView.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>357969C32E2A3DBB11BC6205741BE78580013CEE</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/redihd/ZqwHorizontalTableView.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>357969C32E2A3DBB11BC6205741BE78580013CEE</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>357969C32E2A3DBB11BC6205741BE78580013CEE</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ZqwHorizontalTableView</string>
+		</dict>
+	</array>
+</dict>
+</plist>

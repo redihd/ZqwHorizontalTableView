@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ZqwTableViewDataSource.h"
 #import "ZqwTableViewDelegate.h"
-
+@class ZqwTableViewCell;
 @interface ZqwHorizontalTableView : UIScrollView
 
 @property (nonatomic, strong) UIImageView* backgroudView;
@@ -18,7 +18,7 @@
 @property (nonatomic, weak) id<ZqwTableViewDataSource> dataSource;
 @property (nonatomic, assign) NSInteger selectedIndex;
 
-- (UITableViewCell*)dequeueZqwTalbeViewCellForIdentifiy:(NSString *)identifiy;
+- (ZqwTableViewCell *)dequeueZqwTalbeViewCellForIdentifiy:(NSString *)identifiy;
 - (void)reloadData;
 
 @end
