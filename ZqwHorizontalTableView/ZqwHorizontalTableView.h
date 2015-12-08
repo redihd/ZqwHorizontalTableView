@@ -12,7 +12,6 @@
 @class ZqwTableViewCell;
 @interface ZqwHorizontalTableView : UIScrollView
 
-@property (nonatomic, strong) UIImageView* backgroudView;
 @property (nonatomic, strong, readonly) NSArray* visibleCells;
 @property (nonatomic, weak) id<ZqwTableViewDelegate> actionDelegate;
 @property (nonatomic, weak) id<ZqwTableViewDataSource> dataSource;

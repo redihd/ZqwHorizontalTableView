@@ -104,11 +104,6 @@ typedef struct {
     }
     
     [self cleanUnusedCellsWithDispalyRange:displayRange];
-    
-    if (_backgroudView) {
-        _backgroudView.frame = self.bounds;
-        [self insertSubview:_backgroudView atIndex:0];
-    }
 }
 
 - (void)reduceContentSize
@@ -124,9 +119,8 @@ typedef struct {
         [_cellXOffsets setObject:@(width) forKey:@(i)];
     }
     if (width < CGRectGetWidth(self.frame)) {
-        width = CGRectGetWidth(self.frame) + 2;
+        width = CGRectGetWidth(self.frame) + 0.00001;
     }
-    width += 10;
     CGSize size = CGSizeMake(width, CGRectGetHeight(self.frame));
     
     [self setContentSize:size];

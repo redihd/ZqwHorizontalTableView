@@ -13,6 +13,8 @@
 @interface ViewController ()<ZqwTableViewDataSource,ZqwTableViewDelegate,UIScrollViewDelegate>
 
 @property (nonatomic, strong) ZqwHorizontalTableView * tableView;
+@property (nonatomic, strong) UIButton * leftButton;
+@property (nonatomic, strong) UIButton * rightButton;
 
 @end
 
@@ -21,14 +23,34 @@
 #pragma mark -
 #pragma mark lazyLaod
 
+- (UIButton *)leftButton{
+    if (nil == _leftButton) {
+        _leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_leftButton setTitle:@"left" forState:UIControlStateNormal];
+        [_leftButton addTarget:self action:@selector(leftButtonClick) forControlEvents:UIControlEventTouchUpInside];
+        [_leftButton setBackgroundColor:[UIColor blueColor]];
+    }
+    return _leftButton;
+}
+
+- (UIButton *)rightButton{
+    if (nil == _rightButton) {
+        _rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_rightButton setTitle:@"right" forState:UIControlStateNormal];
+        [_rightButton addTarget:self action:@selector(rightButtonClick) forControlEvents:UIControlEventTouchUpInside];
+        [_rightButton setBackgroundColor:[UIColor blueColor]];
+    }
+    return _rightButton;
+}
+
 - (ZqwHorizontalTableView *)tableView{
     if (nil == _tableView) {
         _tableView = [[ZqwHorizontalTableView alloc] initWithFrame:self.view.bounds];
-        _tableView.backgroundColor = [UIColor blueColor];
+        _tableView.backgroundColor = [UIColor whiteColor];
         _tableView.dataSource = self;
         _tableView.actionDelegate = self;
         _tableView.delegate = self;
-//        _tableView.pagingEnabled = YES;
+        _tableView.pagingEnabled = YES;
     }
     return _tableView;
 }
@@ -39,6 +61,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view addSubview:self.tableView];
+    self.leftButton.frame = CGRectMake(20, 20, 100, 100);
+    self.rightButton.frame = CGRectMake(200, 20, 100, 100);
+    [self.view addSubview:self.leftButton];
+    [self.view addSubview:self.rightButton];
     [_tableView reloadData];
 }
 
@@ -65,7 +91,7 @@
 }
 
 - (NSInteger)numberOfColumnsInZqwTableView:(ZqwHorizontalTableView *)tableView{
-    return 4444;
+    return 4;
 }
 
 - (ZqwTableViewCell *)zqwTableView:(ZqwHorizontalTableView *)tableView cellAtColumn:(NSInteger)column{
@@ -81,8 +107,8 @@
         label.font = [label.font fontWithSize:20];
         label.tag = 1;
         [cell addSubview:label];
-        cell.backgroundColor = [self getRandomColor];
     }
+        cell.backgroundColor = [self getRandomColor];
     label = (UILabel *)[cell viewWithTag:1];
     label.text = [NSString stringWithFormat:@"%ld",column];
 
@@ -90,7 +116,7 @@
 }
 
 - (CGFloat)zqwTableView:(ZqwHorizontalTableView *)tableView cellWidthAtColumn:(NSInteger)column{
-    return 175;
+    return 375;
 }
 
 #pragma mark -
@@ -111,6 +137,25 @@
                             green:green
                              blue:blue
                             alpha:1.0];
+}
+
+#pragma mark -
+#pragma mark action
+
+- (void)leftButtonClick{
+    if (self.tableView.contentOffset.x >= 375) {
+        [self.tableView setContentOffset:CGPointMake(self.tableView.contentOffset.x - 375, 0) animated:YES];
+    }
+}
+
+- (void)rightButtonClick{
+    if (self.tableView.contentOffset.x < self.tableView.contentSize.width - 375) {
+        [self.tableView setContentOffset:CGPointMake(self.tableView.contentOffset.x + 375, 0) animated:YES];
+    }
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+
 }
 
 @end
