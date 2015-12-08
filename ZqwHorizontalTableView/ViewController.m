@@ -13,8 +13,6 @@
 @interface ViewController ()<ZqwTableViewDataSource,ZqwTableViewDelegate,UIScrollViewDelegate>
 
 @property (nonatomic, strong) ZqwHorizontalTableView * tableView;
-@property (nonatomic, strong) UIButton * leftButton;
-@property (nonatomic, strong) UIButton * rightButton;
 
 @end
 
@@ -22,26 +20,6 @@
 
 #pragma mark -
 #pragma mark lazyLaod
-
-- (UIButton *)leftButton{
-    if (nil == _leftButton) {
-        _leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_leftButton setTitle:@"left" forState:UIControlStateNormal];
-        [_leftButton addTarget:self action:@selector(leftButtonClick) forControlEvents:UIControlEventTouchUpInside];
-        [_leftButton setBackgroundColor:[UIColor blueColor]];
-    }
-    return _leftButton;
-}
-
-- (UIButton *)rightButton{
-    if (nil == _rightButton) {
-        _rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_rightButton setTitle:@"right" forState:UIControlStateNormal];
-        [_rightButton addTarget:self action:@selector(rightButtonClick) forControlEvents:UIControlEventTouchUpInside];
-        [_rightButton setBackgroundColor:[UIColor blueColor]];
-    }
-    return _rightButton;
-}
 
 - (ZqwHorizontalTableView *)tableView{
     if (nil == _tableView) {
@@ -61,10 +39,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view addSubview:self.tableView];
-    self.leftButton.frame = CGRectMake(20, 20, 100, 100);
-    self.rightButton.frame = CGRectMake(200, 20, 100, 100);
-    [self.view addSubview:self.leftButton];
-    [self.view addSubview:self.rightButton];
     [_tableView reloadData];
 }
 
@@ -138,24 +112,4 @@
                              blue:blue
                             alpha:1.0];
 }
-
-#pragma mark -
-#pragma mark action
-
-- (void)leftButtonClick{
-    if (self.tableView.contentOffset.x >= 375) {
-        [self.tableView setContentOffset:CGPointMake(self.tableView.contentOffset.x - 375, 0) animated:YES];
-    }
-}
-
-- (void)rightButtonClick{
-    if (self.tableView.contentOffset.x < self.tableView.contentSize.width - 375) {
-        [self.tableView setContentOffset:CGPointMake(self.tableView.contentOffset.x + 375, 0) animated:YES];
-    }
-}
-
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
-
-}
-
 @end
